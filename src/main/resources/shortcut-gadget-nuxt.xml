@@ -23,8 +23,6 @@
       <strong>We're sorry but client doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    #requireResource("com.atlassian.jira.gadgets:common")
-    #requireResource("com.atlassian.gadgets.publisher:ajs-gadgets")
     #requireResource("com.samsungds.atlassian.jira.plugin.workgorup:workgroup-resources")
     #requireResource("com.samsungds.atlassian.jira.plugin.workgorup:workgroup-client-resources")
     #includeResources()

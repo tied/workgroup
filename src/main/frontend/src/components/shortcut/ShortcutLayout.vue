@@ -67,24 +67,18 @@
           <span class="text-h5">{{ dialogMode.toUpperCase() }} Shortcut</span>
         </v-card-title>
         <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field
-                    v-model="selectedShortcut.name"
-                    label="Name"
-                    required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                    v-model="selectedShortcut.url"
-                    label="URL"
-                    required
-                ></v-text-field>
-              </v-col>
-            </v-row>
-          </v-container>
+          <v-form v-model="valid">
+            <v-text-field
+                v-model="selectedShortcut.name"
+                label="Name"
+                :rules="[rules.required]"
+            ></v-text-field>
+            <v-text-field
+                v-model="selectedShortcut.url"
+                label="URL"
+                :rules="[rules.required]"
+            ></v-text-field>
+          </v-form>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -99,6 +93,7 @@
               color="blue darken-1"
               text
               v-on:click="save"
+              :disabled="!valid"
           >
             Save
           </v-btn>
@@ -121,6 +116,12 @@ export default {
       shortcuts: [],
       selectedShortcut: {},
       selectedIndex: -1,
+      valid: true,
+      rules: {
+        required: value => !!value || 'Required.',
+        min: v => v.length >= 8 || 'Min 8 characters',
+        emailMatch: () => (`The email and password you entered don't match`),
+      },
     }
   },
   mounted() {
@@ -131,7 +132,7 @@ export default {
     getShortcuts(str) {
       console.log(str);
       axios.get(`${SHORT_REST_URL}/userName/admin`).then((res) => {
-        console.table(res.data);
+        console.log("res.data:", res.data);
         this.shortcuts = [];
         res.data.forEach((item) => {
           this.shortcuts.push({
@@ -228,5 +229,9 @@ export default {
 .v-list-item {
   min-width: 120px !important;
   min-height: 32px !important;
+}
+
+.v-input input, .v-input textarea {
+  box-shadow: none !important;
 }
 </style>
