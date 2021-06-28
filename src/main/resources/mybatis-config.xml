@@ -16,6 +16,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="mapper/workgroup/MysqlUsersMapsper.xml" />
+    <mapper resource="mapper/workgroup/MysqlUsersMapper.xml" />
   </mappers>
 </configuration>

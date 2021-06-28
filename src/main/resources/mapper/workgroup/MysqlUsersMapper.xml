@@ -5,8 +5,8 @@
     <result property="user" column="user"/>
   </resultMap>
   <select id="selectAll" resultMap="result">
-    select host host,
-           user user
-      from mysql.user
+      select host host,
+             user user
+        from mysql.user
   </select>
 </mapper>
