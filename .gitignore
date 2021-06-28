@@ -1,0 +1,19 @@
+.DS_Store
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+target
+src/main/resources/client
+src/main/resources/META-INF/plugin-descriptor
+
+
+src/main/frontend/yarn.lock
+src/main/frontend/node
+src/main/frontend/node_modules

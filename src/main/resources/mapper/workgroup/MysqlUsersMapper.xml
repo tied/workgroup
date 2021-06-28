@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.samsungds.atlassian.jira.plugin.rest.MysqlUserMapper">
+  <resultMap id="result" type="MysqlUser">
+    <result property="host" column="host"/>
+    <result property="user" column="user"/>
+  </resultMap>
+  <select id="selectAll" resultMap="result">
+    select host host,
+           user user
+      from mysql.user
+  </select>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="workgroup" />
+  <!-- add our web resources -->
+  <web-resource key="workgroup-resources" name="workgroup Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="workgroup.css" location="/css/workgroup.css" />
+    <resource type="download" name="workgroup.js" location="/js/workgroup.js" />
+    <resource type="download" name="images/" location="/images" />
+    <context>workgroup-resources</context>
+  </web-resource>
+  <rest name="Workgroup Rest Resource" i18n-name-key="workgroup-rest-resource.name" key="workgroup-rest-resource" path="/workgrouprestresource" version="1.0">
+    <description key="workgroup-rest-resource.description">The Workgroup Rest Resource Plugin</description>
+  </rest>
+  <servlet name="Workgroup Servlet" i18n-name-key="workgroup-servlet.name" key="workgroup-servlet" class="com.samsungds.atlassian.jira.plugin.servlet.WorkgroupServlet">
+    <description key="workgroup-servlet.description">The Workgroup Servlet Plugin</description>
+    <url-pattern>/workgroup*</url-pattern>
+  </servlet>
+  <gadget key="shortcut" name="Shortcut gadget" location="gadget.xml"/>
+  <ao key="ao-module">
+    <description>The module configuring the Active Objects service used by this plugin</description>
+    <entity>com.samsungds.atlassian.jira.plugin.ao.Shortcut</entity>
+  </ao>
+</atlassian-plugin>

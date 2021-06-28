@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Shortcut" directory_title="Shortcut" description="Shortcut gadget">
+        <Optional feature="gadget-directory">
+            <Param name="categories">
+                SamsungDS
+            </Param>
+        </Optional>
+        <Optional feature="atlassian.util"/>
+        <Optional feature="auth-refresh"/>
+        <Require feature="views"/>
+        <Require feature="settitle"/>
+        <Require feature="oauthpopup"/>
+        #oauth
+    </ModulePrefs>
+    <Content type="html" view="profile">
+        <![CDATA[
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>client</title>
+  <body>
+    <noscript>
+      <strong>We're sorry but client doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    #requireResource("com.atlassian.jira.gadgets:common")
+    #requireResource("com.atlassian.gadgets.publisher:ajs-gadgets")
+    #requireResource("com.samsungds.atlassian.jira.plugin.workgroup:workgroup-resources")
+    #requireResource("com.samsungds.atlassian.jira.plugin.workgroup:workgroup-client-resources")
+    #includeResources()
+  </body>
+</html>
+
+        ]]>
+    </Content>
+</Module>
